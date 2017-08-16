@@ -1,5 +1,8 @@
-export const LOGIN = 'LOGIN'
+export const AUTH_REQUEST = 'AUTH_REQUEST'
+export const AUTH_SUCCESS = 'AUTH_SUCCESS'
+export const AUTH_FAILURE = 'AUTH_FAILURE'
 
-export const tryLogin = (credentails) => ({type: LOGIN, credentails})
+export const tryLogin = (credentails) => ({type: AUTH_REQUEST, credentails})
 
-export const loginDone = (loginResult) => ({type: LOGIN, status: loginResult.status, responce: loginResult.responce, error: loginResult.error})
+export const loginSuccess = (loginResult) => ({type: AUTH_SUCCESS, responce: loginResult.responce})
+export const loginSuccess = (loginResult) => ({type: AUTH_FAILURE, error: loginResult.error})

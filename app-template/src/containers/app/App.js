@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import AppHeader from '../components/AppHeader.js';
-import logo from '../images/logo.svg';
+import AppHeader from '../../components/AppHeader.js';
+import logo from '../../images/logo.svg';
 import {MuiThemeProvider} from 'material-ui/styles';
 import './App.css';
 import { push } from 'react-router-redux'

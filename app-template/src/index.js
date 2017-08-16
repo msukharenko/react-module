@@ -1,34 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './pages/App.js';
-import registerServiceWorker from './registerServiceWorker';
-import {Provider} from 'react-redux'
-import { routerReducer,  } from 'react-router-redux'
-//import { Route} from 'react-router'
-import { Router, Route, browserHistory } from 'react-router';
-import {createStore, combineReducers} from 'redux'
-import rootReducer from './reducers'
+import Routes from './router/routes';
+// redux
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+import {fetchNavItems} from './actions/nav-items-actions.js'
 
-
-//import thunk from 'redux-thunk'
-
-
-
-// Build the middleware for intercepting and dispatching navigation actions
-
-
-const store = createStore(combineReducers({rootReducer,  router: routerReducer})
-
-//,applyMiddleware(thunk)
-)
-
-//const history = syncHistoryWithStore(browserHistory, store)
+const store = configureStore();
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router history={browserHistory}>
-            <Route exact path="/" component={App}></Route>
-            <Route path="/about" component={App}></Route>
-        </Router>
-    </Provider>, document.getElementById('root'));
-registerServiceWorker();
+  <Provider store={ store }>
+    <Routes />
+  </Provider>,
+  document.getElementById('root')
+);
+
+//store.dispatch(fetchNavItems('id'))
