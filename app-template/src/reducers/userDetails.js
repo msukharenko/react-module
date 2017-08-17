@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import {LOGIN} from '../actions/userDetails.js'
+import {AUTH_SUCCESS,AUTH_REQUEST,AUTH_FAILURE} from '../actions/userDetails.js'
 
 const userDetails = (state ={
     isLogged: false,
@@ -11,18 +11,13 @@ const userDetails = (state ={
     permitions:[]
 }, action) => {
   switch (action.type) {
-    case LOGIN:
-      if (action.status){
-        if (action.responce){
-          //login done
-        }else{
-          //login error
-        }
-      }else{
-        // try login
-      }
-
-      return 
+    case AUTH_REQUEST:
+      // try login
+    case AUTH_SUCCESS:
+      // login success
+    case AUTH_FAILURE:
+      //login failure
+      return state;
       
     default:
       return state

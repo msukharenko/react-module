@@ -35,10 +35,23 @@ function navItemsFailure(error) {
 
 export function fetchNavItems(clientId) {
   //const API_URL = (`../data/${clientId}/navigation/navigation.json`);
+  return dispatch =>{
+  let json = {
+    "incomplete_results": false,
+    "navItems": []
+  }
+      
   modules.forEach((value)=>{
-    
+    value.routes.forEach((route)=>{
+      json.navItems.push({
+        modulename:value.modulename,
+        component:route.component,
+        location:route.location
+      })
+    })
   });
   dispatch(navItemsSuccess(json))
+}
   // return dispatch => {
   //   dispatch(navItemsRequest());
   //   return fetch(API_URL)

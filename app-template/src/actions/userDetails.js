@@ -5,4 +5,4 @@ export const AUTH_FAILURE = 'AUTH_FAILURE'
 export const tryLogin = (credentails) => ({type: AUTH_REQUEST, credentails})
 
 export const loginSuccess = (loginResult) => ({type: AUTH_SUCCESS, responce: loginResult.responce})
-export const loginSuccess = (loginResult) => ({type: AUTH_FAILURE, error: loginResult.error})
+export const loginFailure = (loginResult) => ({type: AUTH_FAILURE, error: loginResult.error})

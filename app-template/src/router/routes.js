@@ -6,12 +6,13 @@ import { connect } from 'react-redux';
 import { fetchNavItemsIfNeeded } from '../actions/nav-items-actions';
 
 // history
-import {createBrowserHistory} from 'history';
+import createBrowserHistory from 'history/lib/createBrowserHistory';
 
 
 import App from '../containers/app/App';
 import Home from '../containers/home/Home';
 import NotFound from '../containers/misc/NotFound';
+import {importroutes} from '../utils/modules'
 
 const history = createBrowserHistory();
 
@@ -35,28 +36,30 @@ class Routes extends Component {
       if (route.paths !== undefined) {
         currPaths = route.paths;
       } else {
-        currPaths.push(route.linkTo);
+        currPaths.push(route.modulename+'/'+route.location);
       }
       // Components - first check for ecomMods
-      let currComponent;
-      if (route.ecomMod !== undefined) {
-        currComponent = require('../containers/' + route.ecomMod);
-        // clear out currPath if this is an ecom Module
-        // and start a new currPaths array
-        currPaths = [];
-        if (route.parentId === null) {
-          currPaths.push(route.ecomMod);
-        } else {
-          currPaths.push(route.ecomMod + '/:id');
-        }
-      } else {
-        currComponent = require('../containers/' + route.component);
-      }
+      // let currComponent;
+      // if (route.ecomMod !== undefined) {
+      //   currComponent = require('../containers/' + route.ecomMod);
+      //   // clear out currPath if this is an ecom Module
+      //   // and start a new currPaths array
+      //   currPaths = [];
+      //   if (route.parentId === null) {
+      //     currPaths.push(route.ecomMod);
+      //   } else {
+      //     currPaths.push(route.ecomMod + '/:id');
+      //   }
+      // } else {
+      //    currComponent = require('../containers/' + route.component);
+      // }
+      
+      // currPaths.map((currPath, idx) => {
+      //   const props = { key: idx, path: currPath, component: currComponent };
+      //   currRoutesState.push(<Route { ...props } />);
+      // });
 
-      currPaths.map((currPath, idx) => {
-        const props = { key: idx, path: currPath, component: currComponent };
-        currRoutesState.push(<Route { ...props } />);
-      });
+      importroutes(currRoutesState);
 
       if (route.childNodes !== undefined) {
         self.fetchMenuSystem(route.childNodes);
