@@ -12,7 +12,7 @@ import logoImg from '../images/logo.svg'
 
 const Logo = ()=> (
        
-        <img src={logoImg}  style={{width:65+'px'}}></img>
+        <img src={logoImg}  style={{width:57+'px'}}></img>
         )
  //<div><img src={logoImg} style={{height: 30+'%', 'width': 30+'%'}} ></img></div>
 
@@ -20,6 +20,7 @@ const AppHeader = ({menus,login,title}) => (
             <div>
                 <AppBar
                     title={title}
+                    titleStyle={{"margin-top":-5+'px'}}
                     iconElementLeft={<Logo/>}
                     iconElementRight={<Menu  menus={menus}/>}
                     />
