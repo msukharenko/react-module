@@ -11,14 +11,15 @@ import PropTypes from 'prop-types';
 import logoImg from '../images/logo.svg'
 
 const Logo = ()=> (
-        <div><img src={logoImg} style={{height: 30+'%', 'width': 30+'%'}} ></img></div>
+       
+        <img src={logoImg}  style={{width:65+'px'}}></img>
         )
+ //<div><img src={logoImg} style={{height: 30+'%', 'width': 30+'%'}} ></img></div>
 
-
-const AppHeader = ({menus,login}) => (
+const AppHeader = ({menus,login,title}) => (
             <div>
                 <AppBar
-                    title="Title"
+                    title={title}
                     iconElementLeft={<Logo/>}
                     iconElementRight={<Menu  menus={menus}/>}
                     />
@@ -28,8 +29,9 @@ const AppHeader = ({menus,login}) => (
             menus: PropTypes.arrayOf(PropTypes.shape({
                 label: PropTypes.string.isRequired,
                 permition: PropTypes.string.isRequired,
-                onClick: PropTypes.func.isRequired
+                linkto: PropTypes.string.isRequired
             }).isRequired).isRequired,
-            login: PropTypes.string.isRequired
+            login: PropTypes.string.isRequired,
+            title:PropTypes.string
         }
 export default AppHeader;

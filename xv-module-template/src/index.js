@@ -1,4 +1,4 @@
-import Page from './containers/Page'
+import MountBasePage from './containers/MountBasePage'
 import React from 'react'
 import ReactDOM from 'react-dom';
 import {Route} from 'react-router';
@@ -10,7 +10,8 @@ const config = {
     routes: [
         {
             location: '/',
-            component: 'Page'
+            component: MountBasePage,
+            isStart: true
         }
     ],
     reducers: []
@@ -25,7 +26,7 @@ export const applyrouters = (router) => {
         .map((curRoute, idx) => {
             const props = {
                 key: idx,
-                path: curRoute.localtion,
+                path: '/'+config.modulename+(curRoute.location!='/'?(curRoute.location):''),
                 component: curRoute.component
             };
             router.push(<Route { ...props }/>);

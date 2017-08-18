@@ -1,8 +1,8 @@
-import ReactDOM from 'react-dom';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-class Page extends Component {
+class BaseModulePage extends Component {
+    
     render() {
         return (
             <div>
@@ -12,6 +12,8 @@ class Page extends Component {
     }
 }
 
-Page.propTypes = {};
+BaseModulePage.propTypes = {
+    
+};
 
-export default Page;
+export default BaseModulePage;
