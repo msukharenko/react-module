@@ -6,7 +6,7 @@ class BaseModulePage extends Component {
     render() {
         return (
             <div>
-                Страница предложений
+                Страница поставщиков
             </div>
         );
     }

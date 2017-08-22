@@ -20,7 +20,7 @@ const AppHeader = ({menus,login,title}) => (
             <div>
                 <AppBar
                     title={title}
-                    titleStyle={{"margin-top":-5+'px'}}
+                    titleStyle={{marginTop:-5+'px'}}
                     iconElementLeft={<Logo/>}
                     iconElementRight={<Menu  menus={menus}/>}
                     />

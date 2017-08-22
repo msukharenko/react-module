@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom';
 import {Route} from 'react-router';
 
 const config = {
-    modulename: 'offers',
-    menulabel: 'Предложения',
+    modulename: 'suppliers',
+    menulabel: 'Поставщики',
     permition: 'NONE',
     routes: [
         {
