@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
+import {importRedusers} from '../utils/modules'
 import thunkMiddleware from 'redux-thunk';
 //import createLogger from 'redux-logger';
 import userDetails from '../reducers/userDetails';
@@ -6,8 +7,8 @@ import userDetails from '../reducers/userDetails';
 //const logger = createLogger();
 const reducer = combineReducers(
   {
-    userDetails
-    
+    userDetails,
+    ...importRedusers()
   }
 );
 

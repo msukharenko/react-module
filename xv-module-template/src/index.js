@@ -1,10 +1,11 @@
 import MountBasePage from './containers/MountBasePage'
 import React from 'react'
+import baseAction from './reducers/baseActions'
 import ReactDOM from 'react-dom';
 import {Route} from 'react-router';
 
 const config = {
-    modulename: 'module-template',
+    modulename: 'moduleTemplate',
     menulabel: 'module-template-label',
     permition: 'NONE',
     routes: [
@@ -14,7 +15,9 @@ const config = {
             isStart: true
         }
     ],
-    reducers: []
+    reducers: {
+        baseAction
+    }
 }
 export default config;
 

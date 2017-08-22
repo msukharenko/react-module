@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import BaseModulePage from './BaseModulePage'
+import BaseModulePage from '../components/BaseModulePage'
 
 
 const mapStateToProps = (state, ownProps) => {
