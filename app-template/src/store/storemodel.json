@@ -1,0 +1,25 @@
+{
+    userdetails:{
+        isFetching:false,
+        isLogged:false,
+        login:'',
+        fio:'',
+        email:'',
+        permitions:['code1','code2'], //alt [{name:'',code:''}]
+        navItems:[{
+            route:'',
+            component:''
+        }]
+    },
+    reference:[{
+        isFetching:false,
+        code:'',
+        name:'',
+        values:[{
+            //some structure
+        }]
+    }],
+    modulename1:{
+        // top level reducer by module
+    }
+}

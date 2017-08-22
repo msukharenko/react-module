@@ -10,3 +10,4 @@ export function checkStatus(response) {
 export function parseJSON(response) {
   return response.json();
 }
+

@@ -1,0 +1,8 @@
+{
+    "login":{
+        "fio":"Ivanov Ivan",
+        "email":"sample@gmail.com",
+        "login":"iivanov",
+        "permitions":[]        
+    }
+}

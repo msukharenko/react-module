@@ -23,7 +23,7 @@ class AppContainer extends Component {
 }
 const mapStateToProps = state => {
     return {
-        navItems:  state.navItemsPerClient?state.navItemsPerClient.navItems:[],
+        navItems:  state.userDetails?state.userDetails.navItems:[],
         login:''
     }
   }

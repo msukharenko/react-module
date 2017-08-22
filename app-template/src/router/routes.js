@@ -1,10 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import {Router, Route, IndexRoute} from 'react-router';
-
+import {trylogin} from '../actions/userDetails'
 // redux
 import {connect} from 'react-redux';
-import {fetchNavItemsIfNeeded} from '../actions/nav-items-actions';
-
 // history
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 
@@ -13,7 +11,6 @@ import Home from '../containers/home/Home';
 import NotFound from '../containers/misc/NotFound';
 import {importroutes} from '../utils/modules'
 
-//import MountBasePage from 'xv-module-template/src/containers/MountBasePage'
 
 const history = createBrowserHistory();
 
@@ -41,11 +38,11 @@ class Routes extends Component {
 
     componentDidMount() {
         const {dispatch} = this.props;
-        dispatch(fetchNavItemsIfNeeded());
+        dispatch(trylogin({login:"sampleLogin",password:"samplePassword"})); // TODD try login with fake login/password
     }
 
     render() {
-        if (!this.props.navItems) 
+        if (this.props.navItems.length==0) 
             return <div>Loading ...</div>;
         return (
             <Router history={history}>
@@ -59,15 +56,14 @@ class Routes extends Component {
     }
 }
 
-//<Route path="/module-template" component={MountBasePage}/>
 
 function mapStateToProps(state) {
-    const {navItemsPerClient} = state;
-    if (!navItemsPerClient) {
-        return {isFetching: false, didInvalidate: false, navItems: [], error: null, login: ''};
+    const {userDetails} = state;
+    if (!userDetails) {
+        return { navItems: [], isFetching: false, login: ''};
     }
 
-    return {error: navItemsPerClient.error, isFetching: navItemsPerClient.isFetching, didInvalidate: navItemsPerClient.didInvalidate, navItems: navItemsPerClient.navItems, login: ''};
+    return { isFetching: userDetails.isFetching, navItems: userDetails.navItems, login: userDetails.login};
 }
 
 Routes.propTypes = {
